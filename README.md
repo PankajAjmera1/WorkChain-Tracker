@@ -4,15 +4,22 @@
 
 WorkChain is a privacy-first desktop application that tracks your productivity, stores your data securely on the decentralized Shelby Protocol, and rewards you for your hard work with on-chain reputation and APT tokens.
 
+
 [![Demo Video](https://img.youtube.com/vi/JrgCmsl8eHw/0.jpg)](https://youtu.be/JrgCmsl8eHw)
 
 ## 📸 Screenshots
 
-![Dashboard](https://raw.githubusercontent.com/PankajAjmera1/WorkChain-Tracker/main/screenshots/dashboard.png)
+### Dashboard
+![Dashboard](images/desktop_dashboard.png)
 *Real-time productivity tracking with dark mode UI*
 
-![Leaderboard](https://raw.githubusercontent.com/PankajAjmera1/WorkChain-Tracker/main/screenshots/leaderboard.png)
+### Leaderboard
+![Leaderboard](images/leaderboard.png)
 *Gamified leaderboard with monthly APT rewards*
+
+### Proof of Payment
+![Transaction](images/employee_trasaction.png)
+*On-chain reward distribution verification*
 
 ## 🏆 Hackathon Tracks
 
