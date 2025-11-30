@@ -1,0 +1,137 @@
+<div class="leaderboard-container">
+    <!-- Header -->
+    <div class="leaderboard-header">
+        <div class="header-content">
+            <h1 class="title">
+                <span class="icon">🏆</span>
+                WorkChain Leaderboard
+            </h1>
+            <p class="subtitle">Compete with the best workers worldwide</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn" [class.active]="currentTimeframe === 'all'" (click)="changeTimeframe('all')">
+                All Time
+            </button>
+            <button class="filter-btn" [class.active]="currentTimeframe === 'month'" (click)="changeTimeframe('month')">
+                This Month
+            </button>
+            <button class="filter-btn" [class.active]="currentTimeframe === 'week'" (click)="changeTimeframe('week')">
+                This Week
+            </button>
+            <button class="filter-btn" [class.active]="currentTimeframe === 'today'" (click)="changeTimeframe('today')">
+                Today
+            </button>
+        </div>
+    </div>
+
+    <!-- Top 3 Podium -->
+    <div class="podium">
+        <div class="podium-place second">
+            <div class="avatar">
+                <div class="rank-badge silver">🥈</div>
+                <div class="user-icon">👤</div>
+            </div>
+            <div class="user-info">
+                <div class="username">0x8a3b...2f1c</div>
+                <div class="stats">
+                    <span class="hours">1,156h</span>
+                    <span class="score">95,432 pts</span>
+                </div>
+            </div>
+            <div class="rank-number">#2</div>
+        </div>
+
+        <div class="podium-place first">
+            <div class="crown">👑</div>
+            <div class="avatar">
+                <div class="rank-badge gold">🥇</div>
+                <div class="user-icon">👤</div>
+            </div>
+            <div class="user-info">
+                <div class="username">You</div>
+                <div class="stats">
+                    <span class="hours">1,234h</span>
+                    <span class="score">98,765 pts</span>
+                </div>
+            </div>
+            <div class="rank-number">#1</div>
+        </div>
+
+        <div class="podium-place third">
+            <div class="avatar">
+                <div class="rank-badge bronze">🥉</div>
+                <div class="user-icon">👤</div>
+            </div>
+            <div class="user-info">
+                <div class="username">0x4c7d...8e9a</div>
+                <div class="stats">
+                    <span class="hours">1,089h</span>
+                    <span class="score">92,108 pts</span>
+                </div>
+            </div>
+            <div class="rank-number">#3</div>
+        </div>
+    </div>
+
+    <!-- Leaderboard Table -->
+    <div class="leaderboard-table">
+        <div class="table-header">
+            <div class="col-rank">Rank</div>
+            <div class="col-user">User</div>
+            <div class="col-hours">Hours</div>
+            <div class="col-score">Score</div>
+            <div class="col-badges">Achievements</div>
+        </div>
+
+        <div class="table-body">
+            <div class="table-row" *ngFor="let user of leaderboardData; let i = index">
+                <div class="col-rank">
+                    <span class="rank-number">{{ i + 4 }}</span>
+                </div>
+                <div class="col-user">
+                    <div class="user-avatar">👤</div>
+                    <span class="username">{{ user.address }}</span>
+                </div>
+                <div class="col-hours">
+                    <span class="hours-value">{{ user.hours }}h</span>
+                </div>
+                <div class="col-score">
+                    <div class="score-bar">
+                        <div class="score-fill" [style.width.%]="user.score / 1000"></div>
+                    </div>
+                    <span class="score-value">{{ user.score | number }}</span>
+                </div>
+                <div class="col-badges">
+                    <span class="badge" *ngFor="let badge of user.badges">{{ badge }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your Rank Card -->
+    <div class="your-rank-card">
+        <div class="card-header">
+            <span class="icon">📊</span>
+            <h3>Your Performance</h3>
+        </div>
+        <div class="card-content">
+            <div class="stat">
+                <span class="label">Current Rank</span>
+                <span class="value rank">#1</span>
+            </div>
+            <div class="stat">
+                <span class="label">Total Hours</span>
+                <span class="value">1,234.5h</span>
+            </div>
+            <div class="stat">
+                <span class="label">Productivity Score</span>
+                <span class="value">98,765</span>
+            </div>
+            <div class="stat">
+                <span class="label">Streak</span>
+                <span class="value streak">🔥 15 days</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+{
+    "name": "workchain-tracker",
+    "version": "1.0.0",
+    "description": "Proof of Work Desktop Tracker for Aptos Hackathon",
+    "main": "dist/main/index.js",
+    "scripts": {
+        "dev": "tsc && electron .",
+        "build": "tsc",
+        "package": "electron-builder",
+        "start": "electron .",
+        "inspect-db": "node src/main/inspect-db-simple.js"
+    },
+    "keywords": [
+        "electron",
+        "aptos",
+        "proof-of-work",
+        "tracker"
+    ],
+    "author": "WorkChain Team",
+    "license": "MIT",
+    "dependencies": {
+        "@shelby-protocol/sdk": "^0.0.7",
+        "active-win": "^8.1.0",
+        "electron": "^33.2.0",
+        "node-machine-id": "^1.1.12",
+        "screenshot-desktop": "^1.15.0",
+        "sql.js": "^1.12.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.2",
+        "@types/sql.js": "^1.4.9",
+        "electron-builder": "^25.1.8",
+        "typescript": "^5.7.2"
+    },
+    "build": {
+        "appId": "com.workchain.tracker",
+        "productName": "WorkChain Tracker",
+        "directories": {
+            "output": "release"
+        },
+        "win": {
+            "target": "nsis",
+            "icon": "assets/icon.png"
+        },
+        "files": [
+            "dist/**/*",
+            "assets/**/*",
+            "package.json"
+        ]
+    }
+}

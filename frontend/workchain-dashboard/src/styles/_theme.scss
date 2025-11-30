@@ -1,0 +1,7 @@
+@use '@angular/material' as mat;
+
+// Include Material Design core
+@include mat.core();
+
+// We'll use the default Material theme for now
+// Custom theming can be added later

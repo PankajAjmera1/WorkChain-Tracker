@@ -1,0 +1,122 @@
+<div class="dashboard-container">
+    <!-- Header -->
+    <mat-toolbar color="primary" class="dashboard-toolbar">
+        <mat-icon class="logo-icon">work</mat-icon>
+        <span>WorkChain</span>
+        <span class="spacer"></span>
+
+        <!-- Wallet Info -->
+        <div *ngIf="walletAddress()" class="wallet-info">
+            <span class="balance">{{ walletBalance() }} APT</span>
+            <span class="address">{{ walletAddress() | slice:0:6 }}...{{ walletAddress() | slice:-4 }}</span>
+        </div>
+
+        <!-- Actions -->
+        <button mat-flat-button color="accent" *ngIf="!walletAddress()" (click)="connectWallet()">
+            <mat-icon>account_balance_wallet</mat-icon>
+            Connect Wallet
+        </button>
+
+        <button mat-icon-button (click)="toggleTheme()"
+            [title]="isDarkTheme() ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+            <mat-icon>{{ isDarkTheme() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+        </button>
+
+        <button mat-raised-button [color]="status()?.isTracking ? 'warn' : 'accent'" (click)="toggleTracking()">
+            <mat-icon>{{ status()?.isTracking ? 'stop' : 'play_arrow' }}</mat-icon>
+            {{ status()?.isTracking ? 'Stop Tracking' : 'Start Tracking' }}
+        </button>
+    </mat-toolbar>
+
+    <div class="content-wrapper">
+        <h2 class="page-title">Dashboard Overview</h2>
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <app-stats-card title="Total Time" [value]="totalHours() + 'h ' + totalMinutes() + 'm'" icon="schedule"
+                color="primary"></app-stats-card>
+            <app-stats-card title="Coding" [value]="codingTime()" icon="code" color="primary"></app-stats-card>
+            <app-stats-card title="Meetings" [value]="meetingTime()" icon="video_call" color="accent"></app-stats-card>
+            <app-stats-card title="Browser" [value]="browserTime()" icon="language" color="warn"></app-stats-card>
+        </div>
+
+        <div class="main-grid">
+            <!-- Left Column: Charts -->
+            <div class="left-column">
+                <mat-card class="dashboard-card">
+                    <mat-card-header>
+                        <mat-card-title>Activity Breakdown</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <app-activity-chart [stats]="categoryStats()"></app-activity-chart>
+
+                        <mat-list>
+                            @for (stat of categoryStats(); track stat.category) {
+                            <mat-list-item>
+                                <mat-icon matListItemIcon [style.color]="stat.color">circle</mat-icon>
+                                <div matListItemTitle>{{ stat.category | titlecase }}</div>
+                                <div matListItemMeta>{{ stat.percentage.toFixed(1) }}% ({{
+                                    trackerService.formatMinutes(stat.minutes) }})</div>
+                            </mat-list-item>
+                            }
+                        </mat-list>
+                    </mat-card-content>
+                </mat-card>
+
+                <!-- Rewards Banner -->
+                <mat-card class="dashboard-card rewards-card">
+                    <mat-card-header>
+                        <mat-card-title>Rewards</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="rewards-content">
+                            <p>Connect your wallet to earn PAT tokens for your verified work hours.</p>
+                            <button mat-stroked-button color="primary" (click)="connectWallet()"
+                                [disabled]="isConnecting() || aptosService.isConnected()">
+                                {{ aptosService.isConnected() ? 'Wallet Connected' : 'Connect Wallet' }}
+                            </button>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <!-- Right Column: History & Proof -->
+            <div class="right-column">
+                <mat-card class="dashboard-card">
+                    <mat-card-header>
+                        <mat-card-title>Recent History</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-nav-list>
+                            @for (day of history(); track day.date) {
+                            <mat-list-item (click)="selectDate(day)"
+                                [class.selected]="selectedDate()?.date === day.date">
+                                <mat-icon matListItemIcon>today</mat-icon>
+                                <div matListItemTitle>{{ day.date | date:'MMM d, y' }}</div>
+                                <div matListItemLine>{{ trackerService.formatMinutes(day.totalActiveMinutes) }} • {{
+                                    day.submittedToChain ? 'Verified' : 'Pending' }}</div>
+                                <mat-icon matListItemMeta>chevron_right</mat-icon>
+                            </mat-list-item>
+                            }
+                            @if (history().length === 0) {
+                            <div class="empty-state">No history available</div>
+                            }
+                        </mat-nav-list>
+                    </mat-card-content>
+                </mat-card>
+
+                <mat-card class="dashboard-card" *ngIf="status()?.lastScreenshotHash">
+                    <mat-card-header>
+                        <mat-card-title>Latest Proof</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="hash-box">
+                            <span class="label">Hash:</span>
+                            <code>{{ status()?.lastScreenshotHash }}</code>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

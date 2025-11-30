@@ -1,0 +1,468 @@
+// Modern Green Theme Variables
+$primary-green: #10B981;
+$light-green: #34D399;
+$dark-green: #064E3B;
+$forest-green: #047857;
+$emerald: #059669;
+$bg-dark: #0F172A;
+$bg-card: #1E293B;
+$text-primary: #F1F5F9;
+$text-secondary: #94A3B8;
+
+.leaderboard-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, $bg-dark 0%, #1a2332 100%);
+    padding: 2rem;
+    color: $text-primary;
+}
+
+// Header
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    .header-content {
+        margin-bottom: 2rem;
+    }
+
+    .title {
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, $primary-green, $light-green);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+
+        .icon {
+            font-size: 3.5rem;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+    }
+
+    .subtitle {
+        color: $text-secondary;
+        font-size: 1.1rem;
+    }
+
+    .filters {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        padding: 0.75rem 1.5rem;
+        border: 2px solid $forest-green;
+        background: transparent;
+        color: $text-primary;
+        border-radius: 2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: $forest-green;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba($primary-green, 0.3);
+        }
+
+        &.active {
+            background: linear-gradient(135deg, $primary-green, $emerald);
+            border-color: $primary-green;
+            box-shadow: 0 4px 20px rgba($primary-green, 0.4);
+        }
+    }
+}
+
+// Podium
+.podium {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+
+    .podium-place {
+        background: $bg-card;
+        border-radius: 1.5rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        position: relative;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba($primary-green, 0.2);
+        }
+
+        &.first {
+            order: 2;
+            padding: 3rem 2rem;
+            border-color: #FFD700;
+            background: linear-gradient(135deg, $bg-card, rgba(#FFD700, 0.1));
+            box-shadow: 0 10px 40px rgba(#FFD700, 0.3);
+
+            .crown {
+                font-size: 3rem;
+                position: absolute;
+                top: -2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: float 3s ease-in-out infinite;
+            }
+        }
+
+        &.second {
+            order: 1;
+            border-color: #C0C0C0;
+        }
+
+        &.third {
+            order: 3;
+            border-color: #CD7F32;
+        }
+    }
+
+    .avatar {
+        position: relative;
+        margin-bottom: 1rem;
+
+        .rank-badge {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+
+            &.gold {
+                filter: drop-shadow(0 0 10px #FFD700);
+            }
+
+            &.silver {
+                filter: drop-shadow(0 0 10px #C0C0C0);
+            }
+
+            &.bronze {
+                filter: drop-shadow(0 0 10px #CD7F32);
+            }
+        }
+
+        .user-icon {
+            font-size: 4rem;
+            background: linear-gradient(135deg, $primary-green, $light-green);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+    }
+
+    .user-info {
+        .username {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $text-primary;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            .hours {
+                color: $primary-green;
+                font-weight: 600;
+                font-size: 1.5rem;
+            }
+
+            .score {
+                color: $text-secondary;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .rank-number {
+        margin-top: 1rem;
+        font-size: 2rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, $primary-green, $light-green);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+// Leaderboard Table
+.leaderboard-table {
+    background: $bg-card;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid rgba($primary-green, 0.2);
+
+    .table-header {
+        display: grid;
+        grid-template-columns: 80px 1fr 150px 200px 150px;
+        gap: 1rem;
+        padding: 1.5rem 2rem;
+        background: linear-gradient(135deg, $forest-green, $emerald);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .table-body {
+        .table-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 150px 200px 150px;
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba($primary-green, 0.1);
+            transition: all 0.3s ease;
+            align-items: center;
+
+            &:hover {
+                background: rgba($primary-green, 0.05);
+                transform: translateX(10px);
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .col-rank {
+        .rank-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: $text-secondary;
+        }
+    }
+
+    .col-user {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, $primary-green, $light-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .username {
+            font-weight: 600;
+            color: $text-primary;
+        }
+    }
+
+    .col-hours {
+        .hours-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $primary-green;
+        }
+    }
+
+    .col-score {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .score-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba($primary-green, 0.2);
+            border-radius: 1rem;
+            overflow: hidden;
+
+            .score-fill {
+                height: 100%;
+                background: linear-gradient(90deg, $primary-green, $light-green);
+                border-radius: 1rem;
+                transition: width 0.5s ease;
+            }
+        }
+
+        .score-value {
+            font-weight: 600;
+            color: $text-primary;
+            min-width: 80px;
+        }
+    }
+
+    .col-badges {
+        display: flex;
+        gap: 0.5rem;
+
+        .badge {
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.3);
+            }
+        }
+    }
+}
+
+// Your Rank Card
+.your-rank-card {
+    background: linear-gradient(135deg, $bg-card, rgba($primary-green, 0.1));
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 2px solid $primary-green;
+    box-shadow: 0 10px 40px rgba($primary-green, 0.2);
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        .icon {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: $text-primary;
+            margin: 0;
+        }
+    }
+
+    .card-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+    }
+
+    .stat {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .label {
+            color: $text-secondary;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: $text-primary;
+
+            &.rank {
+                background: linear-gradient(135deg, $primary-green, $light-green);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            &.streak {
+                color: #FF6B6B;
+            }
+        }
+    }
+}
+
+// Animations
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+// Responsive
+@media (max-width: 1024px) {
+    .podium {
+        flex-direction: column;
+        align-items: center;
+
+        .podium-place {
+            width: 100%;
+            max-width: 400px;
+
+            &.first {
+                order: 1;
+            }
+
+            &.second {
+                order: 2;
+            }
+
+            &.third {
+                order: 3;
+            }
+        }
+    }
+
+    .leaderboard-table {
+
+        .table-header,
+        .table-row {
+            grid-template-columns: 60px 1fr 100px 150px 100px;
+            font-size: 0.85rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .leaderboard-table {
+
+        .table-header,
+        .table-row {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+
+        .col-rank,
+        .col-user,
+        .col-hours,
+        .col-score,
+        .col-badges {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: $text-secondary;
+            }
+        }
+    }
+}

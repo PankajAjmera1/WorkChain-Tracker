@@ -1,0 +1,42 @@
+/* Custom window controls for frameless window */
+.window-controls {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    z-index: 9999;
+    -webkit-app-region: no-drag;
+}
+
+.window-controls button {
+    width: 46px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: var(--md-sys-color-on-surface);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.window-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.window-controls .close-btn:hover {
+    background-color: #e81123;
+    color: white;
+}
+
+/* Make header draggable */
+.dashboard-header {
+    -webkit-app-region: drag;
+}
+
+.dashboard-header button,
+.dashboard-header mat-slide-toggle {
+    -webkit-app-region: no-drag;
+}

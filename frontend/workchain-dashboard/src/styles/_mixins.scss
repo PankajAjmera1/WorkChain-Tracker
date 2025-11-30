@@ -1,0 +1,74 @@
+// Glassmorphic card mixin
+@mixin glass-card {
+    background: var(--workchain-glass-bg) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--workchain-glass-border);
+    box-shadow: var(--workchain-glass-shadow);
+}
+
+// Gradient background mixin
+@mixin gradient-bg($gradient) {
+    background: $gradient;
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+}
+
+// Hover lift effect
+@mixin hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--md-sys-elevation-level3);
+    }
+}
+
+// Animations
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// Fade in animation class
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+// Slide in animation class
+.slide-in {
+    animation: slideIn 0.5s ease-out;
+}
