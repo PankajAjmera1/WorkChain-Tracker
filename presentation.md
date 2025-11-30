@@ -1,83 +1,104 @@
-# ⚡ WorkChain: Gamified Decentralized Productivity
-## Build on Aptos Hackathon - IBW Submission
+# ⚡ WorkChain
+## Gamified Decentralized Productivity
+### Build on Aptos Hackathon - IBW
 
 ---
 
-## 🎯 Track Submission
-**Primary Track:** Track 4: Shelby Consumer Integration
-**Secondary Track:** Track 3: Consumer Apps, Culture & Others
+## 🔴 The Problem: "Work is Broken"
 
-**Why Track 4?**
-WorkChain leverages **Shelby Protocol** to give users true ownership of their productivity data. Instead of storing sensitive work logs on centralized servers, we encrypt and store them on Shelby's decentralized storage, creating a "Training Data Compliance Platform" for personal productivity.
-
----
-
-## 🔴 The Problem
-1. **Data Silos**: Your work history (coding, meetings, browsing) is scattered across apps and owned by corporations.
-2. **Lack of Motivation**: Remote work can be isolating and demotivating without feedback loops.
-3. **Privacy Concerns**: Productivity trackers often spy on users, creating a surveillance culture.
-4. **Zero Value for Data**: Users generate valuable work data but get nothing in return.
+*   **🔒 Data Silos**: Your hard work is locked in centralized apps (Slack, Jira, GitHub).
+*   **📉 Zero Motivation**: Remote work feels lonely and unrewarding.
+*   **👁️ Surveillance**: Traditional trackers spy on you.
+*   **💸 No Ownership**: You generate data, companies monetize it.
 
 ---
 
 ## 🟢 The Solution: WorkChain
-A privacy-first, gamified productivity tracker built on **Aptos** and **Shelby Protocol**.
 
-*   **🛡️ Privacy First**: Data is encrypted locally and stored on **Shelby**. You own your data.
-*   **🎮 Gamified**: Earn XP, badges, and streaks for productive work. Compete on the global leaderboard.
-*   **💰 Rewarding**: Top performers earn **PAT (Productivity Aptos Token)** rewards monthly.
-*   **⚡ Verifiable**: Work proofs are submitted on-chain to Aptos, creating a verifiable "Proof of Work" history.
+**A Privacy-First, Gamified Productivity Ecosystem.**
+
+*   **🛡️ Own Your Data**: Encrypted & stored on **Shelby Protocol**.
+*   **🎮 Gamify Work**: Earn XP, Streaks, and Badges.
+*   **💰 Get Paid**: Monthly **APT Rewards** for top performers.
+*   **⛓️ Verify Skills**: On-chain "Proof of Work" on **Aptos**.
+
+---
+
+## 🎯 Hackathon Tracks
+
+### 1️⃣ Track 4: Shelby Consumer Integration (Primary)
+*   **Why?** We use Shelby as a **Compliance Layer** for personal data.
+*   **Tech**: Encrypted "Daily Blobs" stored on decentralized nodes.
+
+### 2️⃣ Track 3: Consumer Apps (Secondary)
+*   **Why?** A fun, daily-use app for millions of remote workers.
+*   **Tech**: Beautiful Electron App + Gamified Leaderboard.
 
 ---
 
 ## 🚀 Key Features
-*   **Automated Tracking**: Smartly categorizes Coding (VS Code), Meetings (Zoom/Meet), and Research (Browser).
-*   **Shelby Integration**: Daily summaries are encrypted and uploaded to Shelby Protocol (Blob storage).
-*   **Aptos Leaderboard**: On-chain ranking system based on verified productivity scores.
-*   **Monthly Rewards**: Smart contract automatically distributes APT to top 3 users (50%/30%/20% split).
-*   **Modern UI**: Beautiful, dark-mode dashboard with real-time analytics.
+
+### 📊 Auto-Tracking
+*   **Coding**: VS Code, Terminal (1.5x XP)
+*   **Meetings**: Zoom, Meet (1.0x XP)
+*   **Research**: Documentation, StackOverflow (0.8x XP)
+
+### 🏆 Gamification
+*   **Leaderboard**: Global ranking based on verified score.
+*   **Streaks**: Don't break the chain!
+*   **Badges**: "Night Owl", "Deep Worker", "Early Bird".
 
 ---
 
-## 🛠️ Technical Architecture
-*   **Frontend**: Angular + Electron (Desktop App)
-*   **Blockchain**: Aptos Move (Smart Contracts for Proofs & Rewards)
-*   **Storage**: Shelby Protocol (Decentralized Data Lake)
-*   **Identity**: Aptos Wallet (Login & Rewards)
-*   **Encryption**: AES-256 (Local encryption before Shelby upload)
+## 💎 Shelby Integration: "The Secret Sauce"
+
+We solve the **Privacy vs. Verification** paradox.
+
+1.  **Local App**: Captures activity (e.g., "Coding for 2h").
+2.  **Encryption**: Encrypts data with **User's Wallet Key**.
+3.  **Shelby Upload**: Stores encrypted blob on decentralized nodes.
+4.  **Aptos Proof**: Submits `blob_id` + `score` to smart contract.
+
+✅ **Result**: Public Proof, Private Data.
 
 ---
 
-## 💎 Shelby Integration Details
-We use Shelby Protocol to solve the **Data Sovereignty** problem.
+## 💰 Bounty System (Smart Contract)
 
-1.  **Capture**: Electron app captures activity snapshots.
-2.  **Encrypt**: Data is encrypted using the user's wallet signature.
-3.  **Upload**: Encrypted blobs are uploaded to **Shelby Testnet**.
-4.  **Verify**: The `blob_id` is stored on the Aptos smart contract as proof of storage.
+**Automated Monthly Rewards**
 
-*This allows users to carry their work history between employers or platforms without privacy risks.*
+*   **Pool**: 1000 APT (Example)
+*   **Distribution**:
+    *   🥇 **1st Place**: 500 APT (50%)
+    *   🥈 **2nd Place**: 300 APT (30%)
+    *   🥉 **3rd Place**: 200 APT (20%)
+
+*Code is Law. Payouts are instant.*
 
 ---
 
-## 💰 Business Model & Tokenomics
-*   **Freemium Model**: Basic tracking is free.
-*   **Premium Features**: Advanced analytics and team leaderboards.
-*   **Data Marketplace (Future)**: Users can opt-in to sell anonymized productivity datasets to AI researchers (via Shelby).
-*   **Rewards**: Sponsored prize pools for the monthly leaderboard.
+## 🛠️ Tech Stack
+
+*   **Frontend**: Angular 18 + Electron (Green Theme 🌿)
+*   **Blockchain**: Aptos Move (Testnet)
+*   **Storage**: Shelby Protocol SDK
+*   **Security**: AES-256 Local Encryption
 
 ---
 
 ## 🗺️ Roadmap
-*   **Phase 1 (Done)**: Desktop Tracker, Shelby Storage, Aptos Leaderboard.
-*   **Phase 2 (Next)**: Team/Organization Leaderboards, NFT Badges.
-*   **Phase 3**: AI Productivity Coach (using personal data from Shelby).
-*   **Phase 4**: "Proof of Skill" Verifiable Credentials for hiring.
+
+*   **Q4 2025**: Launch Beta on Mainnet.
+*   **Q1 2026**: "Data Marketplace" - Sell your data to AI companies via Shelby.
+*   **Q2 2026**: Organization/Team Dashboards.
 
 ---
 
-## 🔚 Conclusion
-WorkChain isn't just a tracker; it's the future of **WorkFi**. By combining Aptos speed with Shelby's storage, we're making productivity fun, private, and profitable.
+## 🔚 Thank You!
 
-**Links:**
-*   [GitHub Repo](https://github.com/PankajAjmera1/WorkChain-Tracker)
+**WorkChain: Make Work Fun Again.**
+
+🔗 **GitHub**: [github.com/PankajAjmera1/WorkChain-Tracker](https://github.com/PankajAjmera1/WorkChain-Tracker)
+🌍 **Demo**: [Link to Video]
+
+*Built with ❤️ on Aptos & Shelby*

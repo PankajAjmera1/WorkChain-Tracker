@@ -24,6 +24,20 @@ We are submitting to the **Build on Aptos Hackathon - IBW**:
 *   **🏆 Gamified Leaderboard**: Compete with others based on a verified "Productivity Score".
 *   **💰 Monthly Rewards**: Smart contract automatically distributes APT rewards to the top 3 users (50% / 30% / 20% split).
 
+## 👥 Who is this for?
+
+### 👷 For Employees
+*   **Get Paid to Work**: Earn extra income (APT) just for doing your job well.
+*   **Own Your Data**: Your work history is yours. Carry your "Proof of Work" to your next job negotiation.
+*   **Gamify Your Day**: Turn boring tasks into XP, streaks, and badges.
+*   **Privacy Guaranteed**: No creepy screenshots sent to your boss. Only the *score* is shared.
+
+### 🏢 For Employers
+*   **Boost Productivity**: Incentivize deep work with transparent rewards.
+*   **Automated Payroll**: Smart contracts handle performance bonuses instantly.
+*   **Trustless Verification**: Verify work output without needing intrusive surveillance software.
+*   **Global Talent**: Hire anyone, anywhere, and pay based on verified on-chain results.
+
 ## 🧠 Proof of Work & Bounty System
 
 WorkChain uses a smart evaluation engine to calculate a **Productivity Score** for every employee, which directly translates into monthly bounties.
